@@ -1,0 +1,35 @@
+/* Body: contains header, main, footer stacked vertically */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh; /* يملأ ارتفاع الشاشة بالكامل */
+}
+
+/* Main: contains article + aside in a row */
+main {
+    display: flex;
+    flex-direction: row;
+    flex: auto; /* خليها تتمدد وتملأ المساحة المتبقية بين الهيدر والفوتر */
+}
+
+/* Article: takes 2/3 of the width */
+article {
+    flex: 2;
+    overflow-y: auto; /* يسمح بالتمرير لو المحتوى طويل */
+    padding: 10px;
+}
+
+/* Aside: takes 1/3 of the width */
+aside {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Optional: تنسيق بسيط للهيدر والفوتر */
+header, footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
