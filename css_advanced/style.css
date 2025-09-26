@@ -1,0 +1,247 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    padding: 20px 100px;
+    position: absolute; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #C271FF;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('Pics/Object.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    height: 100vh;
+}
+
+.hero-text h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+.hero-text span {
+    margin: 0 20px;
+}
+
+button {
+    background-color: #C271FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 30px auto; 
+    cursor: pointer;
+}
+
+/* Pros Section */
+.pros {
+    margin-top: 50px;
+}
+
+.pros h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.pros h2::before {
+    content: "Learn";
+    color: #C271FF;
+    margin-right: 10px;
+
+}
+
+.pros-list {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 70px;
+}
+
+.pros-list div {
+    text-align: center;
+}
+
+.pros-list img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.pros-list p {
+    font-size: small;
+}
+
+/* Testimonial Section */
+.testimonial {
+    background-color: #C271FF;
+    color: white;
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.testimonial img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.testimonial h3 {
+    margin-top: 20px;
+}
+
+/* Tutorials Section */
+.tutorials {
+    padding: 100px;
+}
+
+.tutorials h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tutorials h2 span {
+    color: #C271FF;
+}
+
+.tutorials-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.tutorial-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stars {
+    color: #C271FF;
+}
+.author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Membership Section */
+.membership {
+    background: #071629;
+    color: white;
+    padding: 100px;
+    text-align: center;
+}
+
+.membership h2::before {
+    content: "Free";
+    color: #C271FF;
+    margin-right: 10px;
+}
+
+.membership-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin: 50px 0;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 100px;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.faq p {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: gray;
+}
+.faq-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 0 100px;
+}
+
+/* Footer */
+footer {
+    background: #071629;
+    color: white;
+    padding: 50px 100px;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+footer section > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+}
+
+.socials i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+footer p {
+    text-align: center;
+}
