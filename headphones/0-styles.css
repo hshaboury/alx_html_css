@@ -56,11 +56,19 @@ h1, h2, h3, h4, h5, h6 {
 /* Header / Hero Section */
 .hero-section {
     background-image: url('images/headphones_hero_1.jpg'); 
-    background-size: 100% auto;  
-    background-position: 50% 0;  
+    background-size: 100% 100vh;  /* Changed from cover to specific dimensions */
+    background-position: top center;
     background-repeat: no-repeat;
+    min-height: 100vh;
     color: var(--color-white);
     padding-bottom: 5rem;
+}
+
+@media screen and (max-width: 480px) {
+    .hero-section {
+        background-size: cover;  /* Keep cover for mobile to prevent distortion */
+        background-position: 60% center;  /* Adjust mobile background position */
+    }
 }
 
 /* Navigation */
@@ -84,20 +92,54 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu {
     display: none; /* Hidden by default, shown in mobile */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-menu-icon {
+    width: 2rem;
+    height: 0.2rem;
+    background-color: var(--color-white);
+    position: relative;
+    display: block;
+}
+
+.nav-menu-icon::before,
+.nav-menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--color-white);
+    left: 0;
+}
+
+.nav-menu-icon::before {
+    top: -0.7rem;
+}
+
+.nav-menu-icon::after {
+    top: 0.7rem;
 }
 
 .nav {
     list-style: none;
     display: flex;
+    gap: 4rem;  /* Add consistent gap between nav items */
 }
 
 .nav .nav-item {
-    margin-left: 4rem;
+    margin: 0;  /* Remove conflicting margins */
+    margin: 1rem 0;
+    text-align: center;
 }
 
 .nav .nav-link {
     font-weight: bold;
     font-size: 1.6rem; 
+    padding: 0.5rem 1rem;  /* Add padding for better clickable area */
 }
 
 /* Hero Content */
@@ -145,52 +187,98 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
 }
 
+/* Navigation toggle styles */
+.nav-menu-icon {
+    width: 2rem;
+    height: 0.2rem;
+    background-color: var(--color-white);
+    position: relative;
+    display: block;
+}
+
+.nav-menu-icon::before,
+.nav-menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--color-white);
+    left: 0;
+}
+
+.nav-menu-icon::before {
+    top: -0.7rem;
+}
+
+.nav-menu-icon::after {
+    top: 0.7rem;
+}
+
+/* Add these styles */
+.nav-toggle {
+    display: none;
+}
+
 /* Responsive - Mobile */
 @media screen and (max-width: 480px) {
-    .nav {
-        display: none; /* Hide desktop navigation */
+    .nav-menu {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        position: relative;
+        z-index: 2;
+        padding: 0.5rem;
     }
 
-    .nav-menu {
-        display: block; /* Show hamburger menu icon */
-        cursor: pointer;
+    .nav {
+        display: none;
+        gap: 0;  /* Reset gap for mobile view */
     }
-    
-    .nav-menu-icon {
-        width: 2rem;
-        height: 0.2rem;
-        background-color: var(--color-white);
-        position: relative;
-        display: block;
+
+    /* Show navigation when checkbox is checked */
+    .nav-toggle:checked ~ nav .nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1;
+        padding-top: 8rem;
     }
-    
+
+    /* Hamburger icon animation when checked */
+    .nav-toggle:checked ~ .nav-menu .nav-menu-icon {
+        background: transparent;
+    }
+
+    .nav-toggle:checked ~ .nav-menu .nav-menu-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .nav-toggle:checked ~ .nav-menu .nav-menu-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    /* Reset other styles */
+    .nav-menu-icon,
     .nav-menu-icon::before,
     .nav-menu-icon::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
         background-color: var(--color-white);
-        left: 0;
     }
 
-    .nav-menu-icon::before {
-        top: -0.7rem;
+    .nav-item {
+        margin: 2rem 0;
+        text-align: center;
     }
 
-    .nav-menu-icon::after {
-        top: 0.7rem;
-    }
-
-    .hero-content {
-        padding: 15rem 0;  /* Adjusted for mobile */
-    }
-    
-    .hero-title {
-        font-size: 2.4rem;
-    }
-
-    .hero-description {
-        padding: 0 2rem;
+    .nav-link {
+        font-size: 2rem;
+        display: block;
+        padding: 1rem;
     }
 }
